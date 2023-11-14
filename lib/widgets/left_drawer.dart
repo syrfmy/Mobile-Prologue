@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_list/menu.dart';
-import 'package:shopping_list/shoplist_form.dart';
+import 'package:prologue/screens/book_list.dart';
+import 'package:prologue/screens/menu.dart';
+import 'package:prologue/screens/shoplist_form.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -17,7 +18,7 @@ class LeftDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Shopping List',
+                  'Prologue',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -26,7 +27,7 @@ class LeftDrawer extends StatelessWidget {
                   ),
                 ),
                 Padding(padding: EdgeInsets.all(10)),
-                Text("Catat seluruh keperluan belanjamu di sini!",
+                Text("Daftarkan Buku yang Anda Ingin Baca!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -42,7 +43,7 @@ class LeftDrawer extends StatelessWidget {
             title: const Text('Halaman Utama'),
             // Bagian redirection ke MyHomePage
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => MyHomePage(),
@@ -50,17 +51,30 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.add_shopping_cart),
-            title: const Text('Tambah Produk'),
+            leading: const Icon(Icons.checklist),
+            title: const Text('List Buku'),
             // Bagian redirection ke ShopFormPage
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ShopFormPage(),
+                    builder: (context) => const BookListPage(),
                   ));
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.add_shopping_cart),
+            title: const Text('Tambah Buku'),
+            // Bagian redirection ke ShopFormPage
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShopFormPage(),
+                  ));
+            },
+          ),
+
         ],
       ),
     );

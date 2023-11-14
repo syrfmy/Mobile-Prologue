@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:prologue/widgets/left_drawer.dart';
-import 'package:prologue/shoplist_form.dart';
+import 'package:prologue/widgets/shop_card.dart';
+import 'package:prologue/screens/shoplist_form.dart';
+import 'package:prologue/screens/book_list.dart';
+
 
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
   final List<ShopItem> items = [
-    ShopItem("Lihat Buku", Icons.checklist, Colors.green),
+    ShopItem("Lihat Buku", Icons.checklist, Colors.red),
     ShopItem("Tambah Buku", Icons.add_shopping_cart, Colors.green),
-    ShopItem("Logout", Icons.logout, Colors.green),
+    ShopItem("Logout", Icons.logout, Colors.blue),
   ];
   @override
   Widget build(BuildContext context) {
@@ -73,12 +76,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class ShopItem {
-  final String name;
-  final IconData icon;
-  final Color cardColor;
-  ShopItem(this.name, this.icon, this.cardColor);
-}
 
 class ShopCard extends StatelessWidget {
   final ShopItem item;
@@ -101,9 +98,12 @@ class ShopCard extends StatelessWidget {
 
           // Navigate ke route yang sesuai (tergantung jenis tombol)
           if (item.name == "Tambah Buku") {
-            Navigator.pushReplacement(context, MaterialPageRoute(
-                      builder: (context) => const ShopFormPage()));
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => ShopFormPage()));
 
+          }
+          if (item.name == "Lihat Buku"){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const BookListPage()));
           }
         },
         child: Container(

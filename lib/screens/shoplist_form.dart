@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prologue/widgets/left_drawer.dart';
+import 'package:prologue/widgets/book.dart';
 
 
 class ShopFormPage extends StatefulWidget {
@@ -109,49 +110,61 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                            style: ButtonStyle(
-                            backgroundColor:
-                            MaterialStateProperty.all(Colors.indigo),
-                          ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: const Text('Produk berhasil tersimpan'),
-                              content: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Nama: $_name'),
-                                    Text('Penulis: $_author'),
-                                    Text('Deskripsi: $_description')
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);// Handle the first button press
+                        },
+                        child: Text('Back'),
+                      ),
+                      const SizedBox(width: 8.0), // Adjust the width as needed for spacing
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                          MaterialStateProperty.all(Colors.indigo),
+                        ),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            books.add(Book(title: _name, author: _author, description: _description));
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: const Text('Produk berhasil tersimpan'),
+                                  content: SingleChildScrollView(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Nama: $_name'),
+                                        Text('Penulis: $_author'),
+                                        Text('Deskripsi: $_description')
+                                      ],
+                                    ),
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      child: const Text('OK'),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                    ),
                                   ],
-                                ),
-                              ),
-                              actions: [
-                                TextButton(
-                                  child: const Text('OK'),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ],
+                                );
+                              },
                             );
-                          },
-                        );
-                        _formKey.currentState!.reset();
-                      }
-                    },
-                    child: const Text(
-                      "Save",
-
-                      style: TextStyle(color: Colors.white),
-                    ),
+                            _formKey.currentState!.reset();
+                          }
+                        },
+                        child: const Text(
+                          "Save",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
                   ),
+
                 ),
 
               ),

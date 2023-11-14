@@ -2,6 +2,11 @@
 
 Repo untuk tugas flutter PBP
 
+## Daftar Isi
+1. [Tugas 7](#tugas-7)
+2. [Tugas 8](#tugas-8)
+3. [Tugas 9](#tugas-9)
+
 ## Tugas 7
 
 ### Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
@@ -56,3 +61,65 @@ Text digunakan untuk menampilkan teks pada kartu berdasarkan properti name dari 
 5. Selanjutnya kita mengubah warna widget yang dibuat ShopCard sesuai dengan warna field cardColor ShopCard
 
 
+## Tugas 8
+
+### Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
+
+Flutter menyimpan halaman yang di datangi user dalam sebuah struktur data seperti Stack. Dimana Halaman yang ditampilkan adalah halaman yang berada di atas Stack.
+ 
+Navigator.push() akan memasukkan halaman baru ke atas Stack, Halaman baru tersebut kemudian akan ditampilkan karena sekarang halaman tersebut adalah Halaman paling atas di stack.
+
+Navigator.pushReplacement() akan menghapus halaman paling atas di Stack kemudian memasukkan halaman baru tersebut ke Stack. Halaman baru tersebut kemudian akan ditampilkan.
+
+Navigator.push() digunakan ketika kita ingin menyimpan _history_ halaman yang ditampilkan seperti saat sedang mencari video di sebuah halaman yang menampilkan List Video. Apabila kita sudah melihat sebuat video, maka kita ingin agar user kembali ke List Video yang ditampilkan sebelumnya.
+
+Navigator.pushReplacement() digunakan apabila kita ingin agar pengguna tidak diperbolehkan untuk kembali ke halaman sebelumnya. Seperti saat pengguna login ke suatu halaman.
+
+###  Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
+
+*1. Container* 
+Container adalah widget serbaguna yang dapat berisi widget lain dan menyediakan properti styling seperti padding, margin, dan dekorasi.
+Container digunakan untuk membungkus widget lain dan menyediakan properti styling serta layout.
+
+*2. Row*
+Row adalah widget yang kita gunakan untuk mengatur layout widget lain secara vertikal. 
+
+*3. Column*
+Column adalah widget yang kita gunakan untuk mengatur layout widget lain secara horizontal.
+
+*4. Align*
+Align adalah widget yang berfungsi mengatur posisi suatu widget di dalam parent widget. 
+
+*5. GridView*
+GridView adalah widget yang akan berfungsi menampilkan widget-widget di dalamnya ke dalam sebuah grid. GridView ini kita gunakan ketika kita ingin mengatur layout banyak widget.
+
+Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+
+###  Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+
+*1. Text Field*
+Text field digunakan untuk menerima masukan dari user dalam konteks aplikasi ini judul, penulis, dan deskripsi buku
+
+*2 ElevatedButton dan TextButton*
+ElevatedButton dan TextButton digunakan untuk konteks yang sama yaitu menerima konfirmasi dari user sebelum melakukan tindakan tertentu. Seperti mengirim form atau kembali ke halaman selanjutnya.
+
+### Bagaimana penerapan clean architecture pada aplikasi Flutter?
+
+Clean architecture sendiri adalah pendekaatan software engginering yang memisahkan aplikasi menjadi lapisan-lapisan independen dengan tanggung jawab tertentu. Di dalam konteks aplikasi ini Feature layer atau widget yang akan kita tampilkan kita gabung ke folder bernama screen. Sedangkan widget yang berhubungan dengan data seperti data buku kita gabung ke folder widget
+
+###  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step!
+
+*1. Membuat halaman form untuk menambah item*
+
+Saya akan menambah halaman form di file bernama shoplist_form.dart dengan 3 text field yaitu judul buku, nama penulis, dan deskripsi buku. TextField akan melakukan validasi input. Selanjutnya kita akan menambahkan popup yang akan muncul ketika kita menekan tombol save. Selain itu ketika tombol save ditekan, kita akan membuat instance class Book berdasarkan input data dari pengguna dan menyimpan instance kelas Book tersebut ke List bernama books di file book.dart. 
+
+*2. Membuat LeftDrawer untuk routing pengguna*
+
+Untuk membuat leftDrawer saya akan membuat left_drawer.dart yang merupakan komponen widget LeftDrawer kita. Setelah itu kita akan menambahkan widget LeftDrawer tersebut ke MyHomePage kita serta membuat sebuah tombol di AppBar menu kita yang berfungsi menampilkan dan menyembunyikan widget LeftDrawer kita. LeftDrawer kita akan berisi tombol untuk mengakses Form penambahan produk dan Halaman yang menampilkan semua buku.
+
+*3. Melakukan Routing untuk tombol di homepage dan di LeftDrawer*
+
+Menggunakan Navigator kita akan push dan pop tergantung tombol kita.
+Tombol Tambah Produk di LeftDrawer dan di MyHomePage akan melakukan push ke halaman ShopProductForm. Selanjutnya tombol Lihat Produk di LeftDrawer dan di MyHomePage akan melakukan push ke halaman BookList. 
+
+## Tugas 8
