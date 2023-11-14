@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'package:prologue/widgets/left_drawer.dart';
+import 'package:prologue/shoplist_form.dart';
 
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
   final List<ShopItem> items = [
-    ShopItem("Lihat Item", Icons.checklist, Colors.red),
-    ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.green),
-    ShopItem("Logout", Icons.logout, Colors.blue),
+    ShopItem("Lihat Buku", Icons.checklist, Colors.green),
+    ShopItem("Tambah Buku", Icons.add_shopping_cart, Colors.green),
+    ShopItem("Logout", Icons.logout, Colors.green),
   ];
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,10 @@ class MyHomePage extends StatelessWidget {
         title: const Text(
           'Prologue Book Inventory',
         ),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
       ),
+      drawer: const LeftDrawer(),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
         child: Padding(
@@ -94,6 +98,13 @@ class ShopCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
+
+          // Navigate ke route yang sesuai (tergantung jenis tombol)
+          if (item.name == "Tambah Buku") {
+            Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) => const ShopFormPage()));
+
+          }
         },
         child: Container(
           // Container untuk menyimpan Icon dan Text
