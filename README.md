@@ -123,3 +123,36 @@ Menggunakan Navigator kita akan push dan pop tergantung tombol kita.
 Tombol Tambah Produk di LeftDrawer dan di MyHomePage akan melakukan push ke halaman ShopProductForm. Selanjutnya tombol Lihat Produk di LeftDrawer dan di MyHomePage akan melakukan push ke halaman BookList. 
 
 ## Tugas 8
+
+### Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Bisa, namun kekurangannya kita tidak tahu tipe data yang kita peroleh nantinya
+
+### Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+CookieRequest merujuk pada informasi yang dibawah oleh konteks user, oleh karena itu setiap halaman memerlukan cookie request untuk memperoleh informasi mengenai user
+
+###  Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+
+Flutter akan mengirimkan http request, responsenya yang dalam JSON kemudian akan di konversi menggunakan model yang telah didefinisikan. Hasil dari konversinya kemudian di tampilkan di UI Flutter
+
+###  Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+Flutter akan mengirimkan http request dengan body berisi username dan password, kemudian di backend django akan melakukan validasi dan memberikan response yang sesuai apabila kombinasi dan password benar. Jika benar halaman akan berpindah ke halaman menu, jika salah akan tetap di halaman login
+
+### Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+Untuk widget yang baru saya gunakan di tugas ini adalah
+
+1. CookieRequest yang bertugas menyimpan informasi pengguna
+2. Switch yang mana merupakan tombol toggle buku milik pengguna atau semua buku
+3. UserProvider menyimpan informasi mengenai pengguna
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+1. Saya coba melakukan deploy (gagal)
+2. Membuat model untuk buku
+3. Memodifikasi halaman book_list untuk menampilkan semua buku
+4. Menambahkan fungsionalitas register di halaman login dan membuat halaman register
+5. Menambahkan fungsi register di backend django
+6. Memodifikasi endpoin get-product untuk memfilter buku milik pengguna dan menampilkannya di halaman book_list
