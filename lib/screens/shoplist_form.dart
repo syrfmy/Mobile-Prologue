@@ -188,7 +188,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                             // Kirim ke Django dan tunggu respons
                             // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
                             final response = await request.postJson(
-                                "http://my-book-collection-api.vercel.app/create-flutter/",
+                                "http://127.0.0.1:8000/create-flutter/",
                                 jsonEncode(<String, String>{
                                   'name': _name,
                                   'author': _author,

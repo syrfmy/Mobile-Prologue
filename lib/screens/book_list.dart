@@ -23,10 +23,10 @@ class _BookListPageState extends State<BookListPage> {
     final userProvider = context.read<UserProvider>();
     final username = userProvider.username;
     var url = Uri.parse(
-        '//my-book-collection-api.vercel.app/json/');
+        '//127.0.0.1:8000/json/');
     if(_userBook){
       url = Uri.parse(
-          '//my-book-collection-api.vercel.app/get-product/');
+          '//127.0.0.1:8000/get-product/');
     }
     var response = await http.post(
       url,

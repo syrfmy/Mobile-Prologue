@@ -93,7 +93,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                               // Kirim ke Django dan tunggu respons
                               // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
                               final response = await request.postJson(
-                                  "http://my-book-collection-api.vercel.app/auth/register/",
+                                  "http://127.0.0.1:8000/auth/register/",
                                   jsonEncode(<String, String>{
                                     'username': username,
                                     'password': password,
