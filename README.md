@@ -1,4 +1,6 @@
 # prologue
+Tutor 9
+[![Build status](https://build.appcenter.ms/v0.1/apps/076c2520-91f1-4b45-aaac-ee7fb4b4cb7a/branches/master/badge)](https://appcenter.ms)
 
 Repo untuk tugas flutter PBP
 
